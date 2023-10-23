@@ -3,18 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                '''
+                'sh './gradlew assemble'
             }
         }
         stage('Test') {
             steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff.."
-                '''
+                 'sh './gradlew test'
             }
         }
         stage('Deliver') {
