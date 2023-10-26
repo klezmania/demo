@@ -1,0 +1,43 @@
+volumes:
+  db_datas:
+  app_data:
+services:
+#  mariadb:
+#    image: mariadb:10.6
+#    container_name: mariadb
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#    volumes:
+#      - db_datas:/var/lib/mysql
+#    ports:
+#      - 9001:3306
+#  rabbitmq:
+#    image: rabbitmq:3.9.11-management-alpine
+#    container_name: rabbitmq
+#    ports:
+#      - 5672:5672
+#      - 15672:15672
+#  adminer-admin:
+#    image: adminer:latest
+#    container_name: adminer-admin
+#    restart: always
+#    ports:
+#      - 9002:8080
+    demo:
+       image: demo:0.0.1-SNAPSHOT
+       container_name: demo
+#       environment:
+#         - SPRING_PROFILES_ACTIVE=deployment
+       ports:
+         - "8083:8081"
+#       volumes:
+#         - app_data:/app/data
+#       depends_on:
+#         - mariadb
+#         - rabbitmq
+  #  frontend:
+  #   build:
+  #     context: ./frontend  # Path to your React frontend's Dockerfile
+  #   ports:
+  #     - 3000:80

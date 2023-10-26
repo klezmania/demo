@@ -11,6 +11,11 @@ pipeline {
                  sh "./gradlew test"
             }
         }
+         stage('Build docker container') {
+                    steps {
+                         sh "./gradlew jibDockerBuild"
+                    }
+                }
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
