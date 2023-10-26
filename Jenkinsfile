@@ -13,16 +13,13 @@ pipeline {
         }
          stage('Build docker container') {
                     steps {
-                         sh "docker --version"
                          sh "./gradlew jibDockerBuild"
                     }
                 }
         stage('Deliver') {
             steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
+                sh "docker compose down"
+                sh "docker compose up"
             }
         }
     }
