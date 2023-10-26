@@ -13,6 +13,7 @@ pipeline {
         }
          stage('Build docker container') {
                     steps {
+                         sh "docker --version"
                          sh "./gradlew jibDockerBuild"
                     }
                 }
